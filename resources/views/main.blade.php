@@ -31,7 +31,15 @@
                 <div class="row">
                     <div class="col"><a href=""><i class="fa-solid fa-check text-success"></i></a></div>
                     <div class="col"><a href=""><i class="fa-solid fa-pen-to-square text-dark"></i></a></div>
-                    <div class="col"><a href=""><i class="fa-solid fa-trash text-danger"></i></a></div>
+                    <div class="col">
+                        <form action="{{route('delete' , $todo['id'])}}" method="post">
+                            @csrf
+                            @method('DELETE')
+                        <button class="btn bg-white"  type="submit">
+                            <i class="fa-solid fs-4 fa-trash text-danger"></i>
+                        </button>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>

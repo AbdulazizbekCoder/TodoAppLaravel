@@ -14,4 +14,4 @@ use \App\Http\Controllers\PageController;
 */
 Route::get('/' , [PageController::class , 'main'])->name('main');
 Route::post('/' , [PageController::class , 'store'])->name('store');
-Route::delete('/' , [PageController::class , 'destroy'])->name('destroy');
+Route::delete('/\{id}' , [PageController::class , 'delete'])->name('delete');
