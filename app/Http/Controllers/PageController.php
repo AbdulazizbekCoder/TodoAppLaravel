@@ -9,7 +9,7 @@ class PageController extends Controller
 {
     public function main()
     {
-        $todos = Todo::all();
+        $todos = Todo::all()->sortByDesc('id');
         return view('main')->with('todos', $todos);
     }
 
@@ -43,6 +43,13 @@ class PageController extends Controller
         $model->save();
         return redirect()->route('main');
 
+    }
+    public function check($id)
+    {
+        $model = Todo::find($id);
+        $model->is_checked = true;
+        $model->save();
+        return redirect()->route('main');
     }
 
     public function delete($id)

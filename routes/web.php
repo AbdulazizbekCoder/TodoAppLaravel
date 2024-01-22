@@ -20,4 +20,6 @@ Route::post('/{id}' , [PageController::class , 'update'])->name('update');
 
 Route::post('/' , [PageController::class , 'store'])->name('store');
 
+Route::get('/checked/{id}' , [PageController::class , 'check'])->name('check');
+
 Route::delete('/{id}' , [PageController::class , 'delete'])->name('delete');

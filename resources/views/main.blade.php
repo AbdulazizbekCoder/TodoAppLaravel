@@ -31,11 +31,19 @@
     @foreach($todos as $todo)
         <div class="row mt-3 fs-4 p-2 border rounded">
             <div class="col-9">
+                @if($todo['is_checked'])
+                <del>{{$todo->content}}</del>
+                @else
                 {{$todo->content}}
+                @endif
             </div>
             <div class="col-3">
                 <div class="row">
-                    <div class="col"><a href=""><i class="fa-solid fa-check text-success"></i></a></div>
+                    <div class="col">
+                        <a href="{{route('check' , $todo['id'])}}">
+                            <i class="fa-solid fa-check {{($todo['is_checked']) ? 'text-danger' : 'text-success'}}"></i>
+                        </a>
+                    </div>
                     <div class="col">
                         <a href="{{route('edit' , $todo['id'])}}">
                             <i class="fa-solid fa-pen-to-square text-dark"></i>
