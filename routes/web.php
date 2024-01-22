@@ -13,5 +13,11 @@ use \App\Http\Controllers\PageController;
 |
 */
 Route::get('/' , [PageController::class , 'main'])->name('main');
+
+Route::get('/{id}' , [PageController::class , 'edit'])->name('edit');
+
+Route::post('/{id}' , [PageController::class , 'update'])->name('update');
+
 Route::post('/' , [PageController::class , 'store'])->name('store');
-Route::delete('/\{id}' , [PageController::class , 'delete'])->name('delete');
+
+Route::delete('/{id}' , [PageController::class , 'delete'])->name('delete');
