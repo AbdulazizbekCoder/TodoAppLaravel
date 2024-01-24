@@ -47,7 +47,10 @@ class PageController extends Controller
     public function check($id)
     {
         $model = Todo::find($id);
-        $model->is_checked = true;
+        if ($model->is_checked)
+            $model->is_checked = false;
+        else
+            $model->is_checked = true;
         $model->save();
         return redirect()->route('main');
     }
